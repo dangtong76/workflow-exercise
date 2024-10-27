@@ -1,0 +1,21 @@
+name: Conditional Workflow Example
+on: [push]
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 - Run a command
+        id: step1
+        run: |
+          echo "Executing step 1"
+          # 아래 줄의 주석을 해제하면 Step 1이 실패하도록 설정됩니다
+          # exit 1
+
+      - name: Step 2 - Run if Step 1 succeeded
+        if: ${{ steps.step1.conclusion == 'success' }}
+        run: echo "Step 1 succeeded, so Step 2 is running."
+
+      - name: Step 3 - Run if Step 1 failed
+        if: ${{ steps.step1.conclusion == 'failure' }}
+        run: echo "Step 1 failed, so Step 3 is running with an error message."
