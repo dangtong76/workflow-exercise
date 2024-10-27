@@ -16,6 +16,9 @@ jobs:
           echo $GITHUB_WORKSPAC
   show-working-directory-win:
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
     steps:
       - name: Display Working Directory & List Files
         run: |
