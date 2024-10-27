@@ -1,7 +1,7 @@
 name: Change Working Dir & Shell
 on: [push]
 jobs:
-  show-working-directory:
+  show-working-directory-linux:
     runs-on: ubuntu-latest
     steps:
       - name: List Files in current working directory
@@ -10,4 +10,19 @@ jobs:
           ls -a
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKSPACE
+          echo $GITHUB_WORKSPAC
+  show-working-directory-win:
+    runs-on: windows-late
+    steps:
+      - name: Display Working Directory & List Files
+        run: |
+          Get-Location
+          dir
+          echo $env:GITHUB_SHA
+          echo $env:GITHUB_REPOSITORY
+          echo $env:GITHUB_WORKSPACE
+      - name: Python Shell
+        shell: python
+        run: |
+          import platform 
+          print(platform.processor())
