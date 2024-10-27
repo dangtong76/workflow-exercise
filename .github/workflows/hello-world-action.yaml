@@ -10,7 +10,7 @@ jobs:
       - id: foo
         uses: dangtong76/actions@159cc1823f088fc8ad55a021f508e62eca641eab
         with:
-          who-to-greet: "dangtong"
+          who-to-greet: "dangtong2"
       - run: echo random-number "$RANDOM_NUMBER"
         shell: bash
         env:
