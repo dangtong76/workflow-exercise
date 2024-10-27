@@ -1,5 +1,8 @@
 name: Change Working Dir & Shell
 on: [push]
+defaults:
+  run:
+    shell: bash
 jobs:
   show-working-directory-linux:
     runs-on: ubuntu-latest
