@@ -7,7 +7,7 @@ jobs:
   show-working-directory-linux:
     runs-on: ubuntu-latest
     steps:
-      - name: List Files in current working directory
+      - name: 현재 워킹디렉토리에서 파일 목록 보기
         run: |
           pwd
           ls -a
@@ -23,14 +23,14 @@ jobs:
       run:
         shell: pwsh
     steps:
-      - name: Display Working Directory & List Files
+      - name: 현재 워킹디렉토리에서 파일 목록 보기
         run: |
           Get-Location
           dir
           echo $env:GITHUB_SHA
           echo $env:GITHUB_REPOSITORY
           echo $env:GITHUB_WORKSPACE
-      - name: Python Shell
+      - name: 파이썬 쉘
         shell: python # Step Level Default Shell
         run: |
           import platform 
