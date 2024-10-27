@@ -1,6 +1,6 @@
 name: Change Working Dir & Shell
 on: [push]
-defaults:  # Workflow Level defaults
+defaults: # Workflow Level defaults
   run:
     shell: bash
 jobs:
@@ -19,7 +19,7 @@ jobs:
         run: pwd
   show-working-directory-win:
     runs-on: windows-latest
-    defaults:  # Job Level Defaults
+    defaults: # Job Level Defaults
       run:
         shell: pwsh
     steps:
@@ -30,8 +30,8 @@ jobs:
           echo $env:GITHUB_SHA
           echo $env:GITHUB_REPOSITORY
           echo $env:GITHUB_WORKSPACE
-      - name: Python Shell 
-        shell: python  # Step Level Default Shell
+      - name: Python Shell
+        shell: python # Step Level Default Shell
         run: |
           import platform 
           print(platform.processor())
