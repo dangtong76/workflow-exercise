@@ -1,0 +1,13 @@
+name: Change Working Dir & Shell
+on: [push]
+jobs:
+  show-working-directory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Files in current working directory
+        run: |
+          pwd
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
