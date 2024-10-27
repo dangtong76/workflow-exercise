@@ -14,9 +14,9 @@ jobs:
         continue-on-error: true
 
       - name: Step 2 - Run if Step 1 succeeded
-        if: ${{ steps.step1.conclusion == 'success' }}
+        if: ${{ steps.step1.outcome == 'success' }}
         run: echo "Step 1 succeeded, so Step 2 is running."
 
       - name: Step 3 - Run if Step 1 failed
-        if: ${{ steps.step1.conclusion == 'failure' }}
+        if: ${{ steps.step1.outcome == 'failure' }}
         run: echo "Step 1 failed, so Step 3 is running with an error message."
