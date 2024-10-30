@@ -2,7 +2,7 @@ name: Workflow Run
 on:
   workflow_run:
     workflows: [Repository Events]
-    types: [completed]
+    types: [completed] #requested 도 있음
 jobs:
   echo-string:
     runs-on: ubuntu-latest
