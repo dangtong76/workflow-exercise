@@ -1,5 +1,23 @@
 name: Repository Events
-on: [push, pull_request, issues]
+on:
+  push:
+    branches:
+      - main
+      - "feature/*" # 하위 경로 포함 하지 않음 (feature/featA/featB = X)
+      - "feature/**" # 하위 경로 포함 (feature/featA/featB = O)
+      - "!feature/develop" # 순서가 중요함. 맨앞에 놓으면 feature/* 에서 develop 브랜치가 다시 포함됨.
+    # branches-ignore:
+    #   - develop
+    tags:
+      - v1.*
+      - "!v1.1.1" # v1.1, v1.1.2
+    paths:
+      - "**.js"
+      - "!app.js"
+  pull_request:
+    types: [opened, assigned, reopened, synchronize]
+  issues:
+    types: [opened]
 
 jobs:
   checkout-test:
