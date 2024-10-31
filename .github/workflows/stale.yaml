@@ -1,0 +1,14 @@
+name: Stale Issue & PRs
+on:
+    schedule:
+        - cron: "5 4 * * *" # 매일 4시 5분에 실행 (분시일월주)
+        - cron: "0/5 * * * *" # 매 5분마다 실행
+jobs:
+    stale:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/stale@v5
+              with:
+                days-before-close: 5 # 기본값은 7일, 스테일 상태로 5일동안 비활동 시 닫기(Close)
+                days-before-stale: 1 # 기본값은 60일, 1일 동안 비활동 상태 시 스테일 처리
+                stale-message: "This issue is stale"
