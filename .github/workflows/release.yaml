@@ -1,0 +1,41 @@
+name: Release Creation Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (semver)'
+        type: string
+        required: true
+        default: ''
+      release_type:
+        description: 'Release type'
+        type: choice
+        required: true
+        options:
+          - major
+          - minor
+          - patch
+      release_notes:
+        description: 'Release notes'
+        type: string
+        required: true
+      is_prerelease:
+        description: 'Is this a pre-release?'
+        type: boolean
+        required: true
+        default: false
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ inputs.version }}
+          release_name: Release ${{ inputs.version }}
+          body: ${{ inputs.release_notes }}
+          prerelease: ${{ inputs.is_prerelease }}
