@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: foo
-      - uses: dangtong76/action@b6404f7de786cb2633744752bdea68e968e5f2a9
+        uses: dangtong76/action@b6404f7de786cb2633744752bdea68e968e5f2a9
         with:
           who-to-greet: "dangtong"
       - run: echo random-number "$RANDOM_NUMBER"
