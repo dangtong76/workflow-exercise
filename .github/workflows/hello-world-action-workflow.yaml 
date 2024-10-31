@@ -1,0 +1,15 @@
+name: Hello World Action
+on: [push]
+jobs:
+  hello-world-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: foo
+      - uses: dangtong76/action@b6404f7de786cb2633744752bdea68e968e5f2a9
+        with:
+          who-to-greet: "dangtong"
+      - run: echo random-number "$RANDOM_NUMBER"
+        shell: bash
+        env:
+          RANDOM_NUMBER: ${{ steps.foo.outputs.random-number }}
