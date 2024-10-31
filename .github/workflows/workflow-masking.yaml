@@ -1,5 +1,7 @@
 name: Workflow Commands
 on: [push]
+env:
+  ACTIONS_STEP_DEBUG: true
 
 jobs:
   testing-wf-commands:
