@@ -24,6 +24,10 @@ on:
         type: boolean
         required: true
         default: false
+      environment: # github Action 의 환경에서 읽어서 현재 리포지토리의 환경 목록을 보여줌
+        description: "Environment"
+        type: environment
+        required: true
 
 jobs:
   create_release:
